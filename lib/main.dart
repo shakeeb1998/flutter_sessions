@@ -1,6 +1,7 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sessions/second_screen.dart';
 
 void main() {
   runApp(MainPage());
@@ -22,7 +23,7 @@ class _MainPageState extends State<MainPage> {
 //try adding text to the container
 //and postion it to the bottom right of the screen
 
-            child: new ClassCard(),
+            child: new Wajahat(),
           ),
         )
 
@@ -89,10 +90,49 @@ class _WajahatState extends State<Wajahat> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Container(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Container(
       height: 100,
       width: 100,
-      color: Colors.red,
-    ));
+      color: Colors.blue,
+    ),
+
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.red,
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.blue,
+                ),
+
+                new RaisedButton(onPressed: ontap,
+                  child: new Text('button'),
+                ),
+              ],
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              color: Colors.red,
+            ),
+          ],
+        ));
+  }
+
+  ontap(){
+    Navigator
+        .of(context)
+        .pushReplacement(
+        new MaterialPageRoute(
+            builder: (context)=>SecondScreen()));
   }
 }
